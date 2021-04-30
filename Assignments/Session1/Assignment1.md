@@ -34,6 +34,7 @@ while (convsize-2) > 0:
 
 
 **4. How are kernels initialized?**
+
 Usually Kernels are randomly initialized. It's not set to zeros, which otherwise would give all input neurons the same weight resulting in same output. Instead Kernels are set to arbitrary values. And later using SGD technique, they are set to optimal values. 
 
 **5. What happens during the training of a DNN?**
