@@ -1,4 +1,4 @@
-1. What are Channels and Kernels (according to EVA)?
+**1. What are Channels and Kernels (according to EVA)?**
 
 ![Channels](https://www.kdnuggets.com/wp-content/uploads/image-data-analysis.jpg)
 
@@ -6,7 +6,7 @@
 Channel is a container of similar features or information. It's a bag of features having same characteristics. Image may have multiple channels.For example, a normal image will have 3 channels like Red, Green, Blue.
 Kernels are feature extractors. There are different types of kernels which have specific usecases, like some type of kernels help in detecting vertical edges and some help in detecting horizontal ones.
 
-2. Why should we (nearly) always use 3x3 kernels?
+**2. Why should we (nearly) always use 3x3 kernels?**
 
 ![](https://images1.programmersought.com/213/00/00a8576d530c7c045a288c3dbd00f065.png)
 
@@ -21,7 +21,7 @@ Usually EVEN shaped kernels lack line of symmetry, for example if a 2x2 kernel i
 
 
 
-3. How many times do we need to perform 3x3 convolutions operations to reach close to 1x1 from 199x199(type each layer output like 199x199 > 197x197...)?
+**3. How many times do we need to perform 3x3 convolutions operations to reach close to 1x1 from 199x199(type each layer output like 199x199 > 197x197...)?**
 
 >> 99 times
 #PYTHON SCRIPT
@@ -33,10 +33,10 @@ while (convsize-2) > 0:
 	convsize = (convsize-2)
 
 
-4. How are kernels initialized?
+**4. How are kernels initialized?**
 Usually Kernels are randomly initialized. It's not set to zeros, which otherwise would give all input neurons the same weight resulting in same output. Instead Kernels are set to arbitrary values. And later using SGD technique, they are set to optimal values. 
 
-5. What happens during the training of a DNN?
+**5. What happens during the training of a DNN?**
 
 Training of DNN
 
