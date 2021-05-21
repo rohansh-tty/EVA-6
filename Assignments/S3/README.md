@@ -1,5 +1,6 @@
 ## S3 Assignment
 
+
 **Main Task**
 
 Write a neural network that can:
@@ -7,9 +8,16 @@ Write a neural network that can:
     * take 2 inputs:
         * an image from MNIST dataset, and
         * a random number between 0 and 9
+        
+        
+        
     * and gives two outputs:
         * the "number" that was represented by the MNIST image, and
         * the "sum" of this number with the random number that was generated and sent as the input to the network
+
+
+![](https://media.giphy.com/media/s2qXK8wAvkHTO/giphy.gif)
+
 
 
 ###### Assignment Solution: ![S3-Solution](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/EVA6_S3.ipynb)
@@ -30,8 +38,9 @@ For MNIST images, I used gz archive file. tFor the random number I generated the
 
 Inside Dataset's getitem(), returned both images and rand_num, along with correct image label and the sum
 
-* **Evaluting Results**
 
+* **Evaluting Results**
+With Validation accuracy of 98%, it seems like model can still be improved. I have randomly added layers in here.
 
 * **Loss Functions**
 
@@ -42,9 +51,11 @@ Used CrossEntropy Loss function, because it's commonly used for classification. 
 
 
 **Model Keypoints**
-1. 6 Convolution Blocks
-2. BatchNormalization after each layer
-3. AvgPool instead of MaxPool
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/model.png)
 
-Validation Accuracy: 99.42% 
+1. 7 Convolution Blocks
+2. BatchNormalization after each layer
+3. AvgPool instead of MaxPool before predictions with no ReLU/BN
+
+Validation Accuracy: 98.20% 
 
