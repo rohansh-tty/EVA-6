@@ -9,17 +9,9 @@
         * the "number" that was represented by the MNIST image, and
         * the "sum" of this number with the random number that was generated and sent as the input to the network
 
-###### Assignment Solution: ![S4-Solution](https://github.com/Gilf641/EVA4/blob/master/S4/S4-Assignment-Solution.ipynb)
+###### Assignment Solution: ![S3-Solution](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/EVA6_S3.ipynb)
 
 
-well documented (via readme file on github and comments in the code)
-must mention the data representation
-must mention your data generation strategy
-must mention how you have combined the two inputs
-must mention how you are evaluating your results
-must mention "what" results you finally got and how did you evaluate your results
-must mention what loss function you picked and why!
-training MUST happen on the GPU
 
 Steps:
 
