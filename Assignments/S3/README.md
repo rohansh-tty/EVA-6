@@ -50,11 +50,22 @@ Used CrossEntropy Loss function, because it's commonly used for classification. 
 
 
 **Model Keypoints**
+
+
 ![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/model.png)
+
 
 1. 7 Convolution Blocks
 2. BatchNormalization after each layer
 3. AvgPool instead of MaxPool before predictions with no ReLU/BN
 
 Validation Accuracy: 98.20% 
+
+
+
+**Model Logs**
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/logs1.png)
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S3/logs2.png)
 
