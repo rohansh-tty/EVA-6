@@ -15,7 +15,6 @@ Write a neural network that can:
 
 
 
-![](https://tenor.com/S7pU.gif)
 
 
 
