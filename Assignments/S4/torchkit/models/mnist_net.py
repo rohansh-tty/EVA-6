@@ -47,12 +47,12 @@ class MNIST_Net(nn.Module):
 
     def forward(self, x):
         conv1_op = self.conv1(x)
-        conv1_op = F.dropout(conv1_op, p=0.025)
+        conv1_op = F.dropout(conv1_op, p=0.030)
 
         pool1_op = self.pool1(conv1_op)
 
         conv2_op = self.conv2(pool1_op)
-        conv2_op = F.dropout(conv2_op, p=0.025)
+        conv2_op = F.dropout(conv2_op, p=0.030)
 
         gap_op = self.gap(conv2_op)
         conv3_op = self.conv3(gap_op)
