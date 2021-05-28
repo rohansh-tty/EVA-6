@@ -1,9 +1,6 @@
 
 # EVA6-S4
 
-* ##  Why the name vigilant-happiness?
-
-    I gave the power to Github to name my repo, so don't blame me!
 
 * ## What is this project all about?
 
