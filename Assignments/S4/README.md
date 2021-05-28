@@ -114,16 +114,30 @@ I would like to highlight 3 points
 
 ## MNIST_Net Explained
 
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/assets/network.png)
 
 **Model Keypoints**
 1. 2 Convolution Blocks
 2. BatchNormalization after each layer
-3. Dropout at the end of each block
-4. AvgPool & MaxPool
-5. 0000 Parameters
+3. Dropout of 3% at the end of each block 
+4. AvgPool & MaxPool once
+5. **16706** Parameters
 5. Global Average Pooling at last
 
-Average Validation Accuracy: 99.42% 
+**Average Validation Accuracy: 99.35%**
+
+![Notebook Link](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/EVA6_Session_4.ipynb)
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/assets/test_acc.png)
 
 
 
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/assets/test_loss.png)
+
+
+
+## Training Logs
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/assets/ep1.png)
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/assets/ep2.png)
