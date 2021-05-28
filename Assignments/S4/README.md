@@ -100,6 +100,9 @@ Here are the results!
 
 ![](assets/LR.png)
 
+
+* Link to ![Excel File](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S4/EVA-S4.xlsx)
+
 I would like to highlight 3 points
  
     * As expected, higher the learning rate, higher the change in Total Error and vice versa.s
