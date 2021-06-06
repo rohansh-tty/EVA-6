@@ -93,7 +93,7 @@ Assignment Task:
 
 ### **Model 3 - NoFCNet**
 
-![File Link](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S5/models/EVA6_S5(NoFCNet).ipynb)
+![File Link](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S5/models/EVA6_S5(NoFCNet2).ipynb)
 
 * **Target**: *Improve the model results i.e Get Model Accuracy >= 99.4% on a consistent basis*
 * **Strategy**: Experiment with different LR Schedules especially with ReduceLROnPlateau & StepLR. Don't use any Fully-Connected Layers
