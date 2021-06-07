@@ -37,8 +37,9 @@ Assignment Task:
 	* Receptive Field - 22x22
 	* Data Augmentation - RandomRotation(-7,7), ColorJitter(brightness=0.5)
 
-
-<img src="assets/dilatednet/dilatednet.png" width="290" height="600">
+|Model Architecture| Model Summary|
+|-------------------------|-------------------------|
+|<img width ="400" src="assets/dilatednet/dilatednet.png" height="600">|<img width = "400" src="assets/dilatednet/dilatednet_arch.png" height="600">|
 
 * **Result**: 
 	* Total Parameters: 6874
@@ -69,7 +70,9 @@ Assignment Task:
 	* Receptive Field = 22x22
 	* Data Augmentation - RandomRotation(-7,7), ColorJitter(brightness=0.5)
 
-<img src="assets/nondilatednet/nondilatednet.png" width="290" height="600">
+|Model Architecture| Model Summary|
+|-------------------------|-------------------------|
+|<img width ="400" src="assets/nondilatednet/nondilatednet.png" height="600">|<img width = "400" src="assets/nondilatednet/nondilated_arch.png" height="600">|
 
 
 * **Result**: 
@@ -103,11 +106,12 @@ Assignment Task:
 	* Receptive Field - 22x22
 	* Data Augmentation - RandomRotation(-7,7), ColorJitter(brightness=0.5)
 
-<!-- ![](assets/nfcnet.png =100x200) -->
-<img src="assets/nfcnet/nfcnet.png" width="290" height="600">
+|Model Architecture| Model Summary|
+|-------------------------|-------------------------|
+|<img width ="400" src="assets/nfcnet/nfcnet.png" height="600">|<img width = "400" src="assets/nfcnet/nfcnet_arch.png" height="600">|
 
 * **Result**: 
-	* Total Parameters: 6,490
+	* Total Parameters: 6,330
 	* Highest Train Accuracy: 98.8450%
 	* Highest Test Accuracy: 99.37%
 	* Corresponding Epoch: 11

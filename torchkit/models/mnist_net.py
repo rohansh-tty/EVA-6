@@ -416,4 +416,68 @@ class NonDilatedNet(nn.Module):
 
         final_op = fc1_op.view(-1, 10)
         return F.log_softmax(final_op, dim=-1)
+    
+
+class NoFCNet2(nn.Module):
+    def __init__(self, dropout_value=0.05):
+        super(NoFCNet2, self).__init__()
+
+        self.conv1 = nn.Sequential(
+                                  nn.Conv2d(in_channels=1, out_channels=8, kernel_size=(3,3), padding=1, bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(8), #input - 28 OUtput - 28 RF - 3
+                                   nn.Dropout(dropout_value),
+                                   
+                                  nn.Conv2d(in_channels=8, out_channels=16, kernel_size=(3,3), padding=1,bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(16), #input - 28 OUtput - 28 RF - 5
+                                   nn.Dropout(dropout_value),
+                                 
+        )
+
+       
+        self.pool1 = nn.MaxPool2d(2, 2)
+
+        self.conv2 = nn.Sequential(
+                                  nn.Conv2d(in_channels=16, out_channels=8, kernel_size=(1,1),  bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(8), #input - 14 OUtput - 14 RF - 6
+                                  nn.Dropout(dropout_value),
+                                   
+                                  nn.Conv2d(in_channels=8, out_channels=10, kernel_size=(3,3),  bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(10), #input - 14 OUtput - 12 RF - 10
+                                   nn.Dropout(dropout_value),
+                                   
+                                  nn.Conv2d(in_channels=10, out_channels=12, kernel_size=(3,3), bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(12),  #input - 12 OUtput - 10 RF - 14
+                                   
+                                   
+                                  nn.Conv2d(in_channels=12, out_channels=14, kernel_size=(3,3), bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(14), #input - 10 OUtput - 8 RF - 18
+                                   
+                                  nn.Conv2d(in_channels=14, out_channels=16, kernel_size=(3,3), bias=False),
+                                  nn.ReLU(), 
+                                  nn.BatchNorm2d(16) #input - 9 OUtput - 7 RF - 22
+        )
+        
+        self.conv3 = nn.Conv2d(16, 24, 1) # input - 8 - 18
+        self.conv4 = nn.Conv2d(24, 10, 1) 
+        
+        
+        self.gap = nn.AdaptiveAvgPool2d(1)
+
+    def forward(self, x):
+        conv1_op = self.conv1(x)
+        pool1_op = self.pool1(conv1_op)
+        conv2_op = self.conv2(pool1_op)
+        conv3_op = self.conv3(conv2_op)
+        gap_op = self.gap(conv3_op)
+        conv4_op = self.conv4(gap_op)
+        final_op = conv4_op.view(conv4_op.shape[0],-1)
+
+        return F.log_softmax(final_op, dim=-1)
+
       
