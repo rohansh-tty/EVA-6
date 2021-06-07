@@ -111,7 +111,7 @@ Assignment Task:
 |<img width ="400" src="assets/nfcnet/nfcnet.png" height="600">|<img width = "400" src="assets/nfcnet/nfcnet_arch.png" height="600">|
 
 * **Result**: 
-	* Total Parameters: 6,330
+	* Total Parameters: 6,490
 	* Highest Train Accuracy: 98.8450%
 	* Highest Test Accuracy: 99.37%
 	* Corresponding Epoch: 11
