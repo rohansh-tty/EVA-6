@@ -108,7 +108,7 @@ Assignment Task:
 
 |Model Architecture| Model Summary|
 |-------------------------|-------------------------|
-|<img width ="400" src="assets/nfcnet/nfcnet.png" height="600">|<img width = "400" src="assets/nfcnet/nfcnet_arch.png" height="600">|
+|<img width ="400" src="assets/nfcnet/nfcnet.png" height="600">|<img width = "400" src="assets/nfcnet/nfcnet_arch2.png" height="600">|
 
 * **Result**: 
 	* Total Parameters: 6,490
