@@ -19,8 +19,12 @@ Assignment Task:
 
 
 
-#### Model Names
+I have created a [reusable pipeline/package](https://github.com/Gilf641/EVA-6/tree/main/torchkit), where I just need to create a new model and run it in Google Colab. I have used a Global Config, which will help me setup all the hyperparams and model requisites, Tensorboard for model analysis and visualization. All models I have used to experiment are here in this [module](https://github.com/Gilf641/EVA-6/blob/main/torchkit/models/mnist_net.py).
 
+
+
+
+#### Model Names
 * DilatedNet - Added Dilation in couple of layers.
 * NonDilatedNet - NeuralNet without dilated convolution
 * NoFCNet - NeuralNet with no fully connected layers.
