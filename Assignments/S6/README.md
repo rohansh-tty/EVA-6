@@ -48,8 +48,9 @@ Assume we have 3 images with 4 channels of size 2x2. Now let's BatchNorm
 
 ![](assets/explain/batchnorm_explain.png)
 
-    BN calculates a mean and variance for each channel. During Backprop, Gamma and Beta get trained. So in total, for each channel 4 parameters, 2 trainable, 2 non-trainable.
-    BN normalizes a particular channel of all images in that batch at once. 
+
+BN calculates a mean and variance for each channel. During Backprop, Gamma and Beta get trained. So in total, for each channel 4 parameters, 2 trainable, 2 non-trainable.
+BN normalizes a particular channel of all images in that batch at once. 
 
 2. **LayerNormalization**
 
