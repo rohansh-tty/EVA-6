@@ -23,6 +23,10 @@ Your 6th Assignment is:
 
 
 
+# About Assignment
+
+Implement Group and Layer Normalization, test how they perform against Batchnorm. Also modularize everything. 
+
 # File Structure
 
 [EVA6_S6.ipynb](Assignments/S6/EVA6_S6.ipynb): Main Colab notebook with all models inside it. I created a simple torch utility package and using it here. Link to torchkit.
