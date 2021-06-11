@@ -63,16 +63,25 @@ Assume we have 3 images with 4 channels of size 2x2. Now let's BatchNorm
 
 
 
+* **Notes on Normalization**
+
+I guess, the main aim to use any kind of normalization is to have pixel values, weights, etc all under one or atleast similar range. This avoids Gradient Explosion.
+
+Now coming to different types, Batchnorm works well with large batch size, while Groupnorm and Layernorm, work with small batches. This is because, in smaller batches, batch stats are too random and increases the error for BN. While Batchnorm is kinda dependent on Batch size, Groupnorm is stable across different batch sizes.
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S6/assets/explain/bn_gn.png)
+
 
 # Main Assignment
 
 
-**[S6 Assignment Solution](Assignments/S6/EVA6_S6.ipynb)**
+**[S6 Assignment Solution](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S6/EVA6_S6.ipynb)**
 
 Modularized the pipeline, now I have a model package, from where I can import any model and run inside colab. 
 
 
 ## Data Visualization
+(*forgot to mention L1+BN in plots*)
 
 * **Validation Accuracy** 
 
@@ -97,14 +106,15 @@ Modularized the pipeline, now I have a model package, from where I can import an
 
 * **20 Misclassified Images**
 
-|BatchNorm | LayerNorm | GroupNorm |
+| L1 + BatchNorm | LayerNorm | GroupNorm |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/bn_misc.jpg">   |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/ln_misc.jpg">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/gn_misc.jpg">|
 
 
 # Analysis
 
-1. I read papers on Batchnorm and Groupnorm, I think that, both are doing what they're good at. Batchnorm works really well with higher batch size, since batch statistics are not too random. While Groupnorm works good with small batches, where stats are arbitrary.
+1. I think that, both are doing what they're good at. Batchnorm works really well with higher batch size, since batch statistics are not too random. While Groupnorm works good with small batches, where stats are arbitrary.
 
-2. As expected Batchnorm has performed well against these two with Batch size of 128. 
+2. As expected Batchnorm has performed well against these two with batch size of 128. 
+
   
