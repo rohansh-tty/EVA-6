@@ -187,10 +187,7 @@ def fit(model, config):
         lr = np.array(scheduler.get_last_lr())
         tb.add_scalar('Learning Rate', lr, epoch)
         
-    # model_results['TrainAccuracy'] = train_accuracies
-    # model_results['TestAccuracy'] = test_accuracies
-    # model_results['TestLoss'] = test_losses
-    # model_results['TrainLoss'] = train_losses
+  
     tb.close()
         
 

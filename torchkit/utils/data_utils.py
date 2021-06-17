@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
+import tqdm as tqdm
 
 def plot_images(data,file):
   r = len(data)//5
@@ -28,4 +30,51 @@ def plot_images(data,file):
 #   files.download(file+'.png')
       
 
+cifar_classes = ('plane', 'car', 'bird', 'cat',
+           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
+def display_cifar_images(data, classname='dog'):
+  images, labels = next(iter(data))
+  image_index = []
+  class_index = cifar_classes.index(classname)
+  count = 0
+  
+  for label in labels:
+    if label == class_index:
+      image_index.append(count)
+    count+=1
+  
+  images = [images[idx] for idx in image_index]
+  np_image_array = [detach_transpose(image) for image in images]
+  return np_image_array
+
+
+
+def detach_transpose(image):
+  img =  image.cpu().detach().numpy()
+  img = img.transpose(1,2,0).clip(0,1)
+  return img
+
+
+def calc_mean_sd(data, image_size=32):
+  sum_ = torch.tensor([0.0,0.0,0.0])
+  sum_sq = torch.tensor([0.0,0.0,0.0])
+  batch_sizes = []
+
+  # count = (390*128*32*32)+(80*32*32) # last batch has 80 images
+  count = 0
+  image_size=32
+
+  for images, labels in tqdm(data):
+    # images shape = (batch_size x channels x image_size x image_size)
+    batch_sizes.append(images.shape[0])
+    count += images.shape[0]*image_size*image_size
+    sum_ += images.sum(axis=[0,2,3]) # calculating mean channelwise
+    sum_sq += (images**2).sum(axis=[0,2,3])
+
+  total_mean = sum_/count
+  total_var = (sum_sq/count) -  (total_mean**2)
+  total_std = torch.sqrt(total_var)
+
+  return f'Dataset Mean: {total_mean}, Dataset SD: {total_std}'
 
