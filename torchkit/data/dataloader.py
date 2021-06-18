@@ -2,7 +2,7 @@ import torch
 from torchvision import datasets
 from .transforms import train_transforms, test_transforms
 
-def Data_To_Dataloader(trainset,testset,seed=1,batch_size=128, num_workers=2,pin_memory=True):
+def convert(trainset,testset,seed=1,batch_size=128, num_workers=2,pin_memory=True):
 	"""
 	Converts DataSet Object to DataLoader
 	"""
@@ -17,6 +17,9 @@ def Data_To_Dataloader(trainset,testset,seed=1,batch_size=128, num_workers=2,pin
 	trainloader = torch.utils.data.DataLoader(trainset, **dataloader_args)
 	testloader = torch.utils.data.DataLoader(testset, **dataloader_args)
 	return  trainloader, testloader
+
+
+
 
 
 def MNIST_Loader(batch: int, train_transforms=train_transforms, test_transforms=test_transforms):

@@ -168,7 +168,13 @@ def fit(model, config):
     model_results = defaultdict()
     
     for epoch in range(1,config.EPOCHS+1):
-        print('\nEPOCH: ', epoch,'LR: ',scheduler.get_last_lr())
+        try:
+            lr_val = scheduler.get_last_lr()
+        except:
+            lr_val = optimizer.param_groups[0]['lr']
+            
+        
+        print('\nEPOCH: ', epoch,'LR: ',lr_val)
       
         # Train and Test Model
         train_misc_images = train(model, epoch, config=config)
@@ -178,15 +184,14 @@ def fit(model, config):
         
         # Scheduler Step, update Learning Rate
         if config.lr_scheduler=='ReduceLROnPlateau':
-            scheduler.step(test_losses)
+            scheduler.step(config.model_results['TestLoss'][-1])
         if config.lr_scheduler=='StepLR':
             scheduler.step()
             
          # add lr to tensorboard
-        lr = np.array(scheduler.get_last_lr())
+        lr = np.array(lr_val)
         tb.add_scalar('Learning Rate', lr, epoch)
         
-    
     tb.close()
         
 
