@@ -22,20 +22,16 @@ Your 6th Assignment is:
         Upload your complete assignment on GitHub and share the link on LMS
 
 
-### Table of Contents
 
-    1. About Repo
-    2. Normalization & Types
-    3. Main Assignment 
-    4. Analysis
+# About Assignment
 
+Implement Group and Layer Normalization, test how they perform against Batchnorm. Also modularize everything. 
 
-
-# About Repo
+# File Structure
 
 [EVA6_S6.ipynb](Assignments/S6/EVA6_S6.ipynb): Main Colab notebook with all models inside it. I created a simple torch utility package and using it here. Link to torchkit.
 
-[/assets](Assignments/S6/assets): Folder consisting images and other subfolders.
+[torchkit](https://github.com/Gilf641/EVA-6/tree/main/torchkit): Custom Pytorch Utility package
 
 
 # Normalization & its Types
@@ -46,24 +42,25 @@ Batch Norm is most commonly used and works for all batch sizes. While Group and 
 
 Assume we have 3 images with 4 channels of size 2x2. Now let's BatchNorm
 
-1. BatchNormalization:
+1. **BatchNormalization**
 
     BatchNorm will make sure that the channel(pixel) values are in proper range, so that training becomes easier, faster and simpler. Here's a representation of BatchNorm
 
 ![](assets/explain/batchnorm_explain.png)
 
-    BN calculates a mean and variance for each channel. During Backprop, Gamma and Beta get trained. So in total, for each channel 4 parameters, 2 trainable, 2 non-trainable.
-    BN normalizes a particular channel of all images in that batch at once. 
 
-2. LayerNormalization:
+BN calculates a mean and variance for each channel. During Backprop, Gamma and Beta get trained. So in total, for each channel 4 parameters, 2 trainable, 2 non-trainable.
+BN normalizes a particular channel of all images in that batch at once. 
+
+2. **LayerNormalization**
 
     Here in LayerNorm, things are bit different. Here normalization is done for all channels of mini-batch of images at once. Here's a represenation of LayerNorm
 
-![](assets/explain/layernorm_explain.png)
+![](assets/explain/layernorm_explainpng.png)
 
 
 
-3. GroupNormalization:
+3. **GroupNormalization**
 
     Similar to LayerNorm, but normalized in groups. Here normalization is done for a group channels of mini-batch of images at once. Here's a represenation of GroupNorm
 
@@ -71,50 +68,58 @@ Assume we have 3 images with 4 channels of size 2x2. Now let's BatchNorm
 
 
 
+* **Notes on Normalization**
+
+I guess, the main aim to use any kind of normalization is to have pixel values, weights, etc all under one or atleast similar range. This avoids Gradient Explosion.
+
+Now coming to different types, Batchnorm works well with large batch size, while Groupnorm and Layernorm, work with small batches. This is because, in smaller batches, batch stats are too random and increases the error for BN. While Batchnorm is kinda dependent on Batch size, Groupnorm is stable across different batch sizes.
+
+![](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S6/assets/explain/bn_gn.png)
+
 
 # Main Assignment
 
 
-**[S6 Assignment Solution](Assignments/S6/EVA6_S6.ipynb)**
+**[S6 Assignment Solution](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S6/EVA6_S6.ipynb)**
 
 Modularized the pipeline, now I have a model package, from where I can import any model and run inside colab. 
 
 
 ## Data Visualization
+(*forgot to mention L1+BN in plots*)
 
-* Validation Accuracy 
+* **Validation Accuracy** 
+
 ![](assets/model/test_acc.png)
 
 
-* Validation Loss 
+* **Validation Loss** 
+
 ![](assets/model/test_loss.png)
 
 
 
-* Train Accuracy 
+* **Train Accuracy** 
+
 ![](assets/model/train_acc.png)
 
 
-* Train Loss 
+* **Train Loss** 
+
 ![](assets/model/train_loss.png)
 
 
+* **20 Misclassified Images**
 
-* 25 misclassified images for BatchNorm
-![](assets/model/bn_misc.png)
-
-
-* 25 misclassified images for LayerNorm
-![](assets/model/ln_misc.png)
-
-
-* 25 misclassified images for GroupNorm
-![](assets/model/gn_misc.png)
-
+| L1 + BatchNorm | LayerNorm | GroupNorm |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/bn_misc.jpg">   |  <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/ln_misc.jpg">|<img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="assets/model/gn_misc.jpg">|
 
 
 # Analysis
 
-1. I read papers on Batchnorm and Groupnorm, I think that, both are doing what they're good at. Batchnorm works really well with higher batch size, since batch statistics are not too random. While Groupnorm works good with small batches, where stats are arbitrary.
+1. I think that, both are doing what they're good at. Batchnorm works really well with higher batch size, since batch statistics are not too random. While Groupnorm works good with small batches, where stats are arbitrary.
 
-2. As expected Batchnorm has performed well against these two. 
+2. As expected Batchnorm has performed well against these two with batch size of 128. 
+
+  

@@ -47,7 +47,7 @@ def train(model, epoch, config=None):
     
     running_loss += loss
     #Implementing L1 Regularization
-    if config.L1Lambda:
+    if config.L1Lambda and config.channel_norm=='BatchNorm2d:
         with torch.enable_grad():
           l1_loss = 0
           for param in model.parameters():
@@ -58,7 +58,6 @@ def train(model, epoch, config=None):
 
     train_loss.append(loss)
 
-    # running_loss += loss
     
     # BackProp
     loss.backward()
@@ -193,7 +192,6 @@ def fit(model, config):
         lr = np.array(lr_val)
         tb.add_scalar('Learning Rate', lr, epoch)
         
-  
     tb.close()
         
 
