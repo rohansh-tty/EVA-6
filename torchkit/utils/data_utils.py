@@ -141,3 +141,18 @@ def plot_misclassified_rgb(data,file, size=(32,32,3), config=None):
    # save the plot
   plt.savefig(file+'.png')
       
+     
+
+def plot_data(data, config, cols=8, rows=5, transform=None):
+  figure = plt.figure(figsize=(cols*2, rows*2))
+  for i in range(1, cols * rows + 1):
+    img, label = data[i]
+    figure.add_subplot(rows, cols, i)
+    plt.title(config.classes[label])
+    plt.axis("off")
+    
+    img = np.transpose(img, (1,2,0)).numpy().astype(np.float32)
+    plt.imshow(img, cmap="gray")
+
+  plt.tight_layout()
+  plt.show()
