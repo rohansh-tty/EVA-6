@@ -20,7 +20,7 @@ Task: Your assignment 7 is:
 
         achieve 85% accuracy, as many epochs as you want. Total Params to be less than 200k. 
         
-Assignment Solution: ![CIFAR-10 Model]()
+Assignment Solution: [CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S7/S7_Assignment.ipynb)
         
         
 * **Model Features:**
