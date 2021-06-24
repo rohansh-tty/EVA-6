@@ -111,7 +111,7 @@ Modified torchsummary by adding a Receptive Field Column. This makes the process
 
 
 * **Misclassified images**
-![](assets/net2/misc2.png)
+![](assets/net2/misc_.png)
 
 
 
