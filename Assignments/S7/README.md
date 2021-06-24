@@ -20,7 +20,11 @@ Task: Your assignment 7 is:
 
         achieve 85% accuracy, as many epochs as you want. Total Params to be less than 200k. 
         
-Assignment Solution: [CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S7/S7_Assignment.ipynb)
+Assignment Solution: 
+
+# MODEL 1:
+
+[CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/main/Assignments/S7/S7_Assignment.ipynb)
         
         
 * **Model Features:**
@@ -67,3 +71,53 @@ Modularized the pipeline, now I have a model package, from where I can import an
 1. Adding Dilation doesn't mean increase in accuracy
 2. As expected Depthwise Convolution, did reduce the accuracy at the cost of less params.
 3. Without Dilation, Classifier would perform much better. 
+
+
+# MODEL 2:
+
+[CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)
+        
+        
+* **Model Features:**
+
+![](assets/net2/updated_summary.png)
+
+1. Used GPU
+2. Receptive Field = 85
+3. Total Params = 168_724
+3. Used 2 Depthwise Separable Convolution layers
+4. Used 1 Dilated Convolution layer
+5. Since the model was overfitting, I used Dropout of 5%.
+6. Ran the model for 100 Epochs
+8. Implemented model checkpoint to save best model and also to save model
+
+# Main Assignment
+
+
+**[S7 Assignment Solution](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)**
+
+Modified torchsummary by adding a Receptive Field Column. This makes the process slightly easier
+
+
+## Model Performance Analysis
+
+
+
+|Accuracy| Loss|
+|-------------------------|-------------------------|
+|<img width ="300" src="assets/net2/trainacc.png" height="200">|<img width = "300" src="assets/net2/trainloss.png" height="200">|
+|<img width ="300" src="assets/net2/testacc.png" height="200">|<img width = "300" src="assets/net2/testloss.png" height="200">|
+
+
+
+* **Misclassified images**
+![](assets/net2/misc2.png)
+
+
+
+
+
+# Analysis
+
+1. Adding Dilation especially in the initial layers, doesn't improve model performance
+2. OnecycleLr has affected and improved model accuracy rate.
