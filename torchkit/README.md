@@ -8,7 +8,7 @@ PyTorch Utility Package to setup training and testing pipeline for Computer Visi
 
 ![](https://github.com/Gilf641/EVA-6/blob/master/torchkit/treestructure.png)
 
-Package has 5 modules
+Package has 5 sub-packages
 
 ### 1. data
 Consists of Dataset, Dataloader functions and classes
