@@ -65,8 +65,6 @@ Consists of DataUtils and ModelUtils, which has helper functions mainly to plot 
 
 
 
-
-#### Model training and validation
     
 
 
