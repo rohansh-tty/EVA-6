@@ -23,7 +23,7 @@ Consists of Train and Testing part of NeuralNet
 Mainly modelsummary with Receptive Field calculated layer-wise
 
 ### 5. utils
-Consists of DataUtils and ModelUtils, which has helper functions mainly to plot and visualize data in former, while model related functions in latter one.
+Consists of DataUtils and ModelUtils, which has helper functions mainly to plot and visualize data in former, & latter has model related functions.
 
 
 ## Features
