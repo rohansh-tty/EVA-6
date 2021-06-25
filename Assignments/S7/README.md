@@ -38,7 +38,7 @@ Assignment Solution:
 4. Used Dilated Convolution
 5. Since the model was overfitting, I used Dropout of 6%.
 6. Ran the model for 50 Epochs
-8. Implemented model checkpoint to save best model and also to save model
+7. Max Validation Accuracy = 83%
 
 # Main Assignment
 
@@ -89,7 +89,7 @@ Modularized the pipeline, now I have a model package, from where I can import an
 4. Used 1 Dilated Convolution layer
 5. Since the model was overfitting, I used Dropout of 5%.
 6. Ran the model for 100 Epochs
-8. Implemented model checkpoint to save best model and also to save model
+7. Max Validation Accuracy = 85.5%
 
 # Main Assignment
 
@@ -111,7 +111,7 @@ Modified torchsummary by adding a Receptive Field Column. This makes the process
 
 
 * **Misclassified images**
-![](assets/net2/misc2.png)
+![](assets/net2/misc_.png)
 
 
 
