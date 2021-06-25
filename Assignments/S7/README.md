@@ -96,7 +96,7 @@ Modularized the pipeline, now I have a model package, from where I can import an
 
 **[S7 Assignment Solution](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)**
 
-Modified torchsummary by adding a Receptive Field Column. This makes the process slightly easier
+Modified [my torch package](https://github.com/Gilf641/EVA-6/tree/master/torchkit) by adding torchsummary with a Receptive Field Column . This makes the process slightly easier
 
 
 ## Model Performance Analysis
