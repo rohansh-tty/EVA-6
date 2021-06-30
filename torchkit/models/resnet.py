@@ -17,7 +17,6 @@ class BasicBlock(nn.Module):
         self.bn2 = nn.BatchNorm2d(planes)
 
         self.shortcut = nn.Sequential()
-        print('STRIDE VALUE', stride, 'INPLANES', in_planes)
         if stride != 1 or in_planes != self.expansion*planes:
             self.shortcut = nn.Sequential(
                 nn.Conv2d(in_planes, self.expansion*planes,
@@ -26,13 +25,9 @@ class BasicBlock(nn.Module):
             )
 
     def forward(self, x):
-        print('BASIC BLOCK FORWARD')
         out = F.relu(self.bn1(self.conv1(x)))
-        print('out1 shape', out.shape)
         out = self.bn2(self.conv2(out))
-        print('out2 shape', out.shape)
         out += self.shortcut(x)
-        print('out2+shortcut shape', out.shape)
         out = F.relu(out)
         return out
 
@@ -69,9 +64,10 @@ class Bottleneck(nn.Module):
 
 
 class ResNet(nn.Module):
-    def __init__(self, block, num_blocks, num_classes=10):
+    def __init__(self, block, num_blocks, config, num_classes=10):
         super(ResNet, self).__init__()
         self.in_planes = 64
+        self.config = config
 
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3,
                                stride=1, padding=1, bias=False)
@@ -83,37 +79,33 @@ class ResNet(nn.Module):
         self.linear = nn.Linear(512*block.expansion, num_classes)
 
     def _make_layer(self, block, planes, num_blocks, stride):
-        print('_make_layer')
         strides = [stride] + [1]*(num_blocks-1)
-        print('strides', strides)
         layers = []
         for stride in strides:
             layers.append(block(self.in_planes, planes, stride))
             self.in_planes = planes * block.expansion
             
-        print('layers', layers)
         return nn.Sequential(*layers)
 
     def forward(self, x):
         out = F.relu(self.bn1(self.conv1(x)))
-        print(1,out.shape)
         out = self.layer1(out)
-        print('layer1',out.shape)
         out = self.layer2(out)
-        print('layer2',out.shape)
         out = self.layer3(out)
-        print('layer3',out.shape)
         out = self.layer4(out)
-        print('layer4',out.shape)
         out = F.avg_pool2d(out, 4)
         out = out.view(out.size(0), -1)
         out = self.linear(out)
-        return out
+        final_op = out.view(-1,10)
+        if self.config.loss_function == 'CrossEntropyLoss':
+            return final_op
+        elif self.config.loss_function == 'NLLoss':
+            return F.log_softmax(final_op, dim=-1)
+        
 
 
-def ResNet18():
-    return ResNet(BasicBlock, [2, 2, 2, 2])
-
+def ResNet18(config):
+    return ResNet(BasicBlock, [2, 2, 2, 2], config)
 
 
 def ResNet34():

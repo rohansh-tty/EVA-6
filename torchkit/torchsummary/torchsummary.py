@@ -29,7 +29,6 @@ def summary_string(model, input_size, batch_size=-1, device=torch.device('cuda:0
 
     def register_hook(module):
         def hook(module, input, output):
-            print('module', module.__class__, type(module.__class__))
             conv2d_layer = torch.nn.modules.conv.Conv2d(5,10,3)
             maxpool_layer = torch.nn.modules.MaxPool2d(2)
             
@@ -46,27 +45,21 @@ def summary_string(model, input_size, batch_size=-1, device=torch.device('cuda:0
                 
                 # naive logic, but will refactor it in future
                 if dilation > 1:
-                    print('dilation greater than 1')
                     kernel_size = kernel_size + dilation
-                    print(f'kernel size updated from {kernel_size-dilation} to {kernel_size}')
                 
                 
                  # add receptive_field calcn
                 current_jump_in = jump_out[-1]
                 current_jump_out = current_jump_in * stride
                 jump_out.append(current_jump_out) # appending current jump out value to list
-                print(f'current_jump_in:{current_jump_in}, current_jump_out:{current_jump_out}')
                 
                 # print('RF CALCULATION')
                 
                 rf_out = rf_list[-1] + (kernel_size - 1)*current_jump_in
             
-                print(f'incoming rf:{rf_list[-1]}, rf_out:{rf_out}')
                 rf_list.append(rf_out)
-                print('--------')
            
                 
-            print('rf list', rf_list)
             class_name = str(module.__class__).split(".")[-1].split("'")[0]
             module_idx = len(summary)
 
@@ -180,121 +173,3 @@ def summary_string(model, input_size, batch_size=-1, device=torch.device('cuda:0
     # return summary
     return summary_str, (total_params, trainable_params)
 
-
-# TestCases
-
-modelconfig = config.GlobalConfig
-
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=3, dilation=2)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
-        self.conv2_drop = nn.Dropout2d()
-        self.fc1 = nn.Linear(320, 50)
-        self.fc2 = nn.Linear(50, 10)
-
-    def forward(self, x):
-        x = F.relu(F.max_pool2d(self.conv1(x), 2))
-        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))
-        x = x.view(-1, 320)
-        x = F.relu(self.fc1(x))
-        x = F.dropout(x, training=self.training)
-        x = self.fc2(x)
-        return F.log_softmax(x, dim=1)
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # PyTorch v0.4.0
-model = Net().to(device)
-
-
-class Net2(nn.Module):
-    def __init__(self):
-        super(Net2, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=3, dilation=2)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=3, padding=1)
-        self.conv3 = nn.Conv2d(20, 30, kernel_size=3)
-        self.conv4 = nn.Conv2d(30, 50, kernel_size=3)
-        self.pool1 = nn.MaxPool2d(2)
-        self.conv5 = nn.Conv2d(50, 10, kernel_size=1)
-        self.conv6 = nn.Conv2d(10, 30, kernel_size=3, padding=1)
-     
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.conv2(x)
-        x = self.conv3(x)
-        x = self.conv4(x)
-        x = self.pool1(x)
-        x = self.conv5(x)
-        x = self.conv6(x)
-        return x
-    
-    
-
-class Net3(nn.Module):
-    def __init__(self):
-        super(Net3, self).__init__()
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=3)
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=3)
-        
-        self.pool1 = nn.MaxPool2d(2)
-        self.trans1 = nn.Conv2d(20, 10, kernel_size=1)
-        
-        self.conv3 = nn.Conv2d(10, 30, kernel_size=3)
-        self.conv4 = nn.Conv2d(30, 50, kernel_size=3)
-        
-        self.pool2 = nn.MaxPool2d(2)
-        self.trans2 = nn.Conv2d(50, 10, kernel_size=1)
-        
-        self.conv5 = nn.Conv2d(10, 20, kernel_size=3)
-        self.conv6 = nn.Conv2d(20, 30, kernel_size=3)
-        
-        self.pool3 = nn.MaxPool2d(2)
-        self.trans3 = nn.Conv2d(30, 10, kernel_size=1)
-        
-        self.conv7 = nn.Conv2d(10, 20, kernel_size=3)
-        self.conv8 = nn.Conv2d(20, 30, kernel_size=3)
-     
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.conv2(x)
-        
-        x = self.pool1(x)
-        x = self.trans1(x)
-        
-        
-        x = self.conv3(x)
-        x = self.conv4(x)
-        
-        x = self.pool2(x)
-        x = self.trans2(x)
-        
-        x = self.conv5(x)
-        x = self.conv6(x)
-        
-        
-        x = self.pool3(x)
-        x = self.trans3(x)
-        
-        x = self.conv7(x)
-        x = self.conv8(x)
-        
-        return x
-
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu") # PyTorch v0.4.0
-print('device', device)
-model1 = Net().to(device)
-model2 = Net2().to(device)
-model3 = Net3().to(device)
-
-# model4 = mnist_net.NoFCNet2(modelconfig).to(device)
-# model5 = cifar_net.SeaFar(modelconfig).to(device)
-model5 = cifar_net.CifarNet2(modelconfig).to(device)
-
-# print(summary(model, (1, 28, 28)))
-# print(summary(model2, (1, 28, 28)))
-# print(summary(model3, (1, 100,100)))
-# print(summary(model4, (1, 28,28)))
-print(summary(model5, (3, 32,32)))
