@@ -27,9 +27,9 @@ Task:
 5. Used NLLoss() to calculate loss value.
 7. Ran the model for 40 Epochs with 
 
-        * Highest Train Accuracy: 91.84% 
+        * Highest Train Accuracy: 90.92% 
 
-        * Corresponding Test Accuracy: 89.22% 
+        * Corresponding Test Accuracy: 85.7% 
 
 
         
