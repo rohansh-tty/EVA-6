@@ -16,7 +16,7 @@ Task:
     Must use LayerNormalization ONLY
 
 
-**Assignment Solution**: ![ResNet Model](https://github.com/Gilf641/EVA4/blob/master/S8/S8_AssignmentSolution.ipynb)
+**Assignment Solution**: ![ResNet Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S8/S8_Assignment.ipynb)
 
 ## **Model Features:**
 
@@ -32,7 +32,6 @@ Task:
         * Corresponding Test Accuracy: 89.22% 
 
 
-[CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)
         
         
 * **Model Features:**
@@ -72,7 +71,8 @@ Task:
 
 
 
-
+* **Model logs**
+![](assets/model_logs.png)
 
 # Analysis
 
