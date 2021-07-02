@@ -16,7 +16,7 @@ Task:
     Must use LayerNormalization ONLY
 
 
-**Assignment Solution**: ![ResNet Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S8/S8_Assignment.ipynb)
+**Assignment Solution**: [ResNet Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S8/S8_Assignment.ipynb)
 
 ## **Model Features:**
 
