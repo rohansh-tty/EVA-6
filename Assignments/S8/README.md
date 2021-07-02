@@ -31,48 +31,6 @@ Task:
 
         * Corresponding Test Accuracy: 89.22% 
 
-* **Model Analysis:**
-1. Lot of fluctuations in Validation Loss values. 
-2. Not that Overfit Model.
-3. In Misclassified Images, one can see that most of images are either hidden / occluded / oriented in different way. Also in some images the class deciding portions is kinda dark. Eg: AirPlane Image (2nd Row, 4th Column) with it's wings, rear parts are not that visible. Front portion of Truck( 5th row, 2nd column)is excluded.
-
-
-
-
-# Main Assignment
-
-
-**[S7 Assignment Solution](Assignments/S7/S7_Assignment.ipynb)**
-
-Modularized the pipeline, now I have a model package, from where I can import any model and run inside colab. 
-
-
-## Model Performance Analysis
-
-
-
-|Accuracy| Loss|
-|-------------------------|-------------------------|
-|<img width ="300" src="assets/trainacc.png" height="200">|<img width = "300" src="assets/trainloss.png" height="200">|
-|<img width ="300" src="assets/testacc.png" height="200">|<img width = "300" src="assets/testloss.png" height="200">|
-
-
-
-* **Misclassified images**
-![](assets/misc_.png)
-
-
-
-
-
-# Analysis
-
-1. Adding Dilation doesn't mean increase in accuracy
-2. As expected Depthwise Convolution, did reduce the accuracy at the cost of less params.
-3. Without Dilation, Classifier would perform much better. 
-
-
-# MODEL 2:
 
 [CIFAR-10 Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)
         
@@ -90,12 +48,12 @@ Modularized the pipeline, now I have a model package, from where I can import an
 6. Ran the model for 100 Epochs
 7. Max Validation Accuracy = 85.5%
 
-# Main Assignment
 
 
-**[S7 Assignment Solution](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S7/S7_Assignment(168k_RF85).ipynb)**
+## **Model Analysis**
+1. Lot of fluctuations in Validation Acc values. 
+2. Overfit Model, need to add Dropout.
 
-Modified [my torch package](https://github.com/Gilf641/EVA-6/tree/master/torchkit) by adding torchsummary with a Receptive Field Column . This makes the process slightly easier
 
 
 ## Model Performance Analysis
@@ -110,7 +68,7 @@ Modified [my torch package](https://github.com/Gilf641/EVA-6/tree/master/torchki
 
 
 * **Misclassified images**
-![](assets/net2/misc_.png)
+![](assets/misclassified_.png)
 
 
 
@@ -118,11 +76,8 @@ Modified [my torch package](https://github.com/Gilf641/EVA-6/tree/master/torchki
 
 # Analysis
 
-1. Adding Dilation especially in the initial layers, doesn't improve model performance
+1. Network is currently overfitting.
 2. OnecycleLr has affected and improved model accuracy rate.
+3. LayerNorm seems to have positive impact on model results. But on reducing batch-size, probably it can reach to BatchNorm's height
 
 
-
-## **Misclassified Images**
-
-![](https://github.com/Gilf641/EVA4/blob/master/S8/Misclassified%20Ones.png)
