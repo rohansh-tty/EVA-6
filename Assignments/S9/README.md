@@ -94,5 +94,5 @@ Task:
 
 1. Network is currently overfitting.
 2. OnecycleLr has affected and improved model accuracy rate.
-3. Starting with low lr value does have an advantage.
+3. Adding Residual layers, does increase the accuracy.
 
