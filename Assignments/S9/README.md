@@ -50,7 +50,7 @@ Task:
     * Corresponding Test Accuracy: 85.16% 
 
 
-![LR Finder](assets/lr_finder.png)
+![LR Finder](assets/lr_finder_.png)
   
         
 * **Model Features:**
