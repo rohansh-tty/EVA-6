@@ -33,7 +33,7 @@ Task:
     Once done, proceed to answer the Assignment-Solution page. 
 
 
-**Assignment Solution**: [ResNet Model](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S9/S9_Assignment.ipynb)
+**Assignment Solution**: [CustomResNet Model Notebook](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S9/S9_Assignment.ipynb)
 
 ## **Model Features:**
 
@@ -50,7 +50,7 @@ Task:
     * Corresponding Test Accuracy: 85.16% 
 
 
-![LR Finder](assets/lr_finder_.png)
+![LR_Finder](assets/lr_finder_.png)
   
         
 * **Model Features:**
