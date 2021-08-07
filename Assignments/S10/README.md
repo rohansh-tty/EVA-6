@@ -85,32 +85,3 @@ Task:
 2. OnecycleLr has affected and improved model accuracy rate.
 3. Adding Data Augmentations can reduce Overfitting.
 
-
-
-## Assignment B
-
-      Download COCO dataset and learn how COCO object detection dataset's schema is.
-
-      Identify following things for this dataset:
-         
-      Class distribution (along with the class names) along with a graph
-      Calculate the Anchor Boxes for k = 3, 4, 5, 6 and draw them.
-
-**Assignment Solution**: [CocoDataset_KMeans](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S10/EVA6_10(CoCo).ipynb)
-
-*  **BBox Distribution across dataset**
-
-![](assets/bbox_dist.png)
-
-
-
-*  **BBox Width and Height Scatter Plot**
-
-![](assets/bbox_wh.png)
-
-* **Anchor Boxes for Num of Clusters**
-
-
-
-|<img width ="200" src="assets/c3.png" height="200">|<img width = "200" src="assets/c4.png" height="200">|
-|<img width ="200" src="assets/c5.png" height="200">|<img width = "200" src="assets/c6.png" height="200">|
