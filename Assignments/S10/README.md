@@ -112,5 +112,5 @@ Task:
 
 
 
-|<img width ="300" src="assets/c3.png" height="200">|<img width = "300" src="assets/c4.png" height="200">|
-|<img width ="300" src="assets/c5.png" height="200">|<img width = "300" src="assets/c6.png" height="200">|
+|<img width ="200" src="assets/c3.png" height="200">|<img width = "200" src="assets/c4.png" height="200">|
+|<img width ="200" src="assets/c5.png" height="200">|<img width = "200" src="assets/c6.png" height="200">|
