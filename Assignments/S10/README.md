@@ -12,7 +12,6 @@ Task:
     Share the calculations for both via a notebook uploaded on your GitHub Repo
 
 
-**Assignment Solution**: [CustomResNet Model Notebook](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S9/S9_Assignment.ipynb)
 
 
 ## Assignment A
@@ -22,6 +21,10 @@ Task:
         Train ResNet18 on this dataset (70/30 split) for 50 Epochs. Target 50%+ Validation Accuracy.
 
         Submit Results. Of course, you are using your own package for everything. You can look at  this  for reference. 
+        
+        
+**Assignment Solution**: [TinyImageNet_ResNet18](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S10/EVA6_S10(TinyImageNet).ipynb)
+
 
 ### **Model Features:**
 
@@ -44,7 +47,7 @@ Task:
 
 
 1. Used GPU
-2. Receptive Field = 122
+2. Receptive Field = 1300
 3. Total Params = 4_058_122
 4. Ran the model for 24 Epochs
 5. Max Validation Accuracy = 38.2%
@@ -92,6 +95,8 @@ Task:
          
       Class distribution (along with the class names) along with a graph
       Calculate the Anchor Boxes for k = 3, 4, 5, 6 and draw them.
+
+**Assignment Solution**: [CocoDataset_KMeans](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S10/EVA6_10(CoCo).ipynb)
 
 *  **BBox Distribution across dataset**
 
