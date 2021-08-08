@@ -2,13 +2,6 @@
 
 
 
-Assignment Task: 
-
-    
-        Share the link to your GitHub project with the steps as mentioned above
-        Share the link of your YouTube video
-        Share the link of your YouTube video on LinkedIn, Instagram, etc! You have no idea how much you'd love people complimenting you! 
-
 # ASSIGNMENT A
 
     OpenCV Yolo: SOURCE (Links to an external site.)
