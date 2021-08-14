@@ -9,9 +9,7 @@ This gives rise to the concept of Spatial Transformer Networks. In STNs, the tra
 ![](assets/SpatialTransformer.png)
 
 
-### Notebook Link
-
-![]()
+### [Notebook Link](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S12/Spatial%20Transformer/spatial_transformer(CIFAR_10).ipynb)
 
 
 ### Model Summary
