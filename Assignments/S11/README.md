@@ -2,13 +2,6 @@
 
 
 
-Assignment Task: 
-
-    
-        Share the link to your GitHub project with the steps as mentioned above
-        Share the link of your YouTube video
-        Share the link of your YouTube video on LinkedIn, Instagram, etc! You have no idea how much you'd love people complimenting you! 
-
 # ASSIGNMENT A
 
     OpenCV Yolo: SOURCE (Links to an external site.)
@@ -19,7 +12,7 @@ Assignment Task:
         Upload the annotated image by YOLO. 
 
 
-[Notebook Link](https://github.com/Gilf641/EVA4/blob/master/S13/Assignment-A/S13%20Assignment-A.ipynb)
+[Notebook Link](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S11/Assignment-A/S11_Assignment_A.ipynb)
 
 
 * **IMPLEMENTATION**
@@ -50,10 +43,10 @@ Training Custom Dataset on Colab for YoloV3
             Upload the video to YouTube. 
 
             
-[Repo Link](https://github.com/Gilf641/YoloV3)
+[Repo Link](https://github.com/Gilf641/EVA-6/tree/master/Assignments/S11/Assignment-B)
 
 
-[Notebook_Link](https://github.com/Gilf641/EVA4/blob/master/S13/Assignment-B/S13%20Assignment-B.ipynb)
+[Notebook_Link](https://github.com/Gilf641/EVA-6/blob/master/Assignments/S11/Assignment-B/S11_Assignment_B.ipynb)
 
 ---------
 
