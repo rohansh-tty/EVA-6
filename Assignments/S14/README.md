@@ -49,6 +49,7 @@ The Decoder in DETR has one extra input called Object Queries/Positional Encodin
 The only difference b/w Object Queries and Anchor Boxes, is that former one learn about Box Location, while latter ones focus on learning about Box sizes. 
 
 ![](assets/detr_transformer.png)
+
 These input queries are being transformed as improvized queries, which are passed as query for second attention block. 
 
 
